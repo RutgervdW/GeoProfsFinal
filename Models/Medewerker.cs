@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Geoprofs.Models
 {
@@ -17,5 +18,7 @@ namespace Geoprofs.Models
         public int ZiekDagenGenomen { get; set; }
         public int WeekUren { get; set; }
         public int WerkDagen { get; set; }
+
+        public ICollection<Afwezigheid> Afwezigheden { get; set; }
     }
 }
