@@ -1,0 +1,39 @@
+﻿@{
+    ViewData["Title"] = "Verlof Aanvraag";
+}
+
+<h3>Verlof Aanvraag</h3>
+<EditForm >
+
+	<div className="form">
+		<p>Van:</p>
+		<input type="date" id="BeginDatum"  />
+		<input type="time" id="BeginTijd" />
+
+		<p>Tot:</p>
+		<input type="date" id="EindDatum" />
+		<input type="time"  id="EindTijd"  />
+
+		<p>Reden: </p>
+		<select name="afwezigheidCategorie">
+			<option value="Ziekte">Ziekte</option>
+			<option value="Huisarts">Huisarts</option>
+			<option value="Tandarts">Tandarts</option>
+		</select>
+
+		<p>Uitleg: </p>
+		<input type="text" id="Redenering" >
+
+		<br />
+		<br />
+			
+		<input type="submit" />
+
+	</div>
+
+</EditForm>
+
+
+
+
+

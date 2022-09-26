@@ -1,0 +1,18 @@
+﻿@model Geoprofs.Models.Afwezigheid
+
+@{
+    ViewData["Title"] = "Mijn verlof";
+}
+
+<div className="MijnAanvragen">
+	<div class="card">
+		<div class="card-header">
+			title
+		</div>
+		<div class="card-body">
+			<p>Reden: @Html.DisplayNameFor(model => model.Redenering)</p>
+			<p>Datum: @Html.DisplayNameFor(model => model.DatumAanvraag)</p>
+			<p>Status:  @Html.DisplayNameFor(model => model.Status)</p>
+		</div>
+	</div>
+</div>

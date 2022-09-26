@@ -28,6 +28,21 @@ namespace Geoprofs.Controllers
             return View();
         }
 
+        public IActionResult VerlofAanvraag()
+        {
+            return View();
+        }
+
+        public IActionResult MijnVerlof()
+        {
+            return View();
+        }
+
+        public IActionResult TeamAanvragen()
+        {
+            return View();
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

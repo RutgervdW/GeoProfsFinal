@@ -1,0 +1,67 @@
+﻿@model Geoprofs.Models.Afwezigheid
+
+@{
+	ViewData["Title"] = "Team Aanvragen";
+}
+<div className="TeamsAanvragen">
+	<div class="card">
+		<div class="card-header">
+			title
+		</div>
+		<div class="card-body">
+			<p>Reden: @Html.DisplayNameFor(model => model.Redenering)</p>
+			<p>Datum: @Html.DisplayNameFor(model => model.DatumAanvraag)</p>
+			<p>Status: @Html.DisplayNameFor(model => model.Status) </p>
+			<p>Werknemer: @Html.DisplayNameFor(model => model.MedewerkerID) </p>
+			<asp:Button id="Button1"
+			   Text="Sort Ascending"
+			   CommandName="Sort"
+			   CommandArgument="Ascending"
+			   OnCommand="CommandBtn_Click" 
+			   runat="server"/>
+
+			<button id="goedkeuring" style="background-color: green; color:white; border:solid 0;"  onclick="UpdateStatus(akkoord:true)">
+				goedkeuren
+			</button>
+			<button id="afgekeuring" style="background-color: red; color:white; border:solid 0;">
+				afgekeured
+			</button>
+		</div>
+	</div>
+
+	<br />
+
+	<div class="card">
+		<div class="card-header">
+			title
+		</div>
+		<div class="card-body">
+			<p>Reden: @Html.DisplayNameFor(model => model.Redenering)</p>
+			<p>Datum: @Html.DisplayNameFor(model => model.DatumAanvraag)</p>
+			<p>Status:  @Html.DisplayNameFor(model => model.Status)</p>
+			<p>Werknemer: @Html.DisplayNameFor(model => model.MedewerkerID) </p>
+
+			<button id="goedkeuring" style="background-color: green; color:white; border:solid 0;">
+				goedkeuren
+			</button>
+			<button id="afwijzing" style="background-color: red; color:white; border:solid 0;">
+				afwijzen
+			</button>
+		</div>
+	</div>
+</div>
+
+@section scripts{
+	<script>
+	private string status = "";
+	function UpdateStatus(bool akkoord)
+	{
+		status = akkoord ? "Goedgekeurd" : "afgekeured";
+	}
+	</script>
+}
+
+
+
+
+
