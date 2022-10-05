@@ -1,0 +1,65 @@
+﻿@model IEnumerable<Geoprofs.Models.Afwezigheid>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CategorieID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Begindatum)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Einddatum)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Redenering)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DatumAanvraag)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CategorieID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Begindatum)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Einddatum)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Redenering)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DatumAanvraag)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

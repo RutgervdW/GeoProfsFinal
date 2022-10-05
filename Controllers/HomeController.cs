@@ -1,5 +1,7 @@
-﻿using Geoprofs.Models;
+﻿using Geoprofs.Data;
+using Geoprofs.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -11,6 +13,7 @@ namespace Geoprofs.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly GeoprofsContext _context;
         private readonly ILogger<HomeController> _logger;
 
         public HomeController(ILogger<HomeController> logger)
@@ -33,9 +36,25 @@ namespace Geoprofs.Controllers
             return View();
         }
 
-        public IActionResult MijnVerlof()
+        public async Task<IActionResult> MijnVerlof(int? id)
         {
-            return View();
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var medewerker = await _context.Medewerkers
+                .Include(s => s.Afwezigheids)
+                    .ThenInclude(e => e.AfwezigheidCategorieID)
+                .AsNoTracking()
+                .FirstOrDefaultAsync(m => m.ID == id);
+
+            if (medewerker == null)
+            {
+                return NotFound();
+            }
+
+            return View(medewerker);
         }
 
         public IActionResult TeamAanvragen()

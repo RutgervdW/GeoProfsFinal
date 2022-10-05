@@ -20,6 +20,6 @@ namespace Geoprofs.Models
         public int WeekUren { get; set; } = 40;
         public int WerkDagen { get; set; } = 5;
 
-        public ICollection<Afwezigheid> Afwezigheden { get; set; }
+        public ICollection<Afwezigheid> Afwezigheids { get; set; }
     }
 }
