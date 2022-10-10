@@ -45,7 +45,7 @@ namespace Geoprofs.Controllers
 
             var medewerker = await _context.Medewerkers
                 .Include(s => s.Afwezigheids)
-                    .ThenInclude(e => e.AfwezigheidCategorieID)
+                    .ThenInclude(e => e.CategorieID)
                 .AsNoTracking()
                 .FirstOrDefaultAsync(m => m.ID == id);
 

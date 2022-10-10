@@ -13,20 +13,14 @@
 			<p>Datum: @Html.DisplayNameFor(model => model.DatumAanvraag)</p>
 			<p>Status: @Html.DisplayNameFor(model => model.Status) </p>
 			<p>Werknemer: @Html.DisplayNameFor(model => model.MedewerkerID) </p>
-			<asp:Button id="Button1"
-			   Text="Sort Ascending"
-			   CommandName="Sort"
-			   CommandArgument="Ascending"
-			   OnCommand="CommandBtn_Click" 
-			   runat="server"/>
+			
 
-			<button id="goedkeuring" style="background-color: green; color:white; border:solid 0;"  onclick="UpdateStatus(akkoord:true)">
+			<button id="goedkeuring" style="background-color: green; color:white; border:solid 0;"  onclick="UpdateStatus(akkoord:true)" asp-action="Edit" asp-for>
 				goedkeuren
 			</button>
 			<button id="afgekeuring" style="background-color: red; color:white; border:solid 0;">
 				afgekeured
 			</button>
-		</div>
 	</div>
 
 	<br />
@@ -53,11 +47,16 @@
 
 @section scripts{
 	<script>
-	private string status = "";
+	private bool status = false;
 	function UpdateStatus(bool akkoord)
 	{
-		status = akkoord ? "Goedgekeurd" : "afgekeured";
+		status = akkoord ? true : false;
+
+	
 	}
+
+     await Html.RenderPartialAsync("_ValidationScriptsPartial");
+
 	</script>
 }
 

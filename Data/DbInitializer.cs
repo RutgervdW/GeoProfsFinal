@@ -56,7 +56,7 @@ namespace Geoprofs.Data
 
             var afwezigheids = new Afwezigheid[]
             {
-                new Afwezigheid{MedewerkerID=1, Begindatum=new DateTime(2022, 9, 19, 9, 0, 0), Einddatum=new DateTime(2022, 9, 19, 17, 0, 0), CategorieID=1, Redenering="buikpijn :(", DatumAanvraag=new DateTime(2022, 9, 18), Status="Approved"}
+                new Afwezigheid{MedewerkerID=1, Begindatum=new DateTime(2022, 9, 19, 9, 0, 0), Einddatum=new DateTime(2022, 9, 19, 17, 0, 0), CategorieID=1, Redenering="buikpijn :(", DatumAanvraag=new DateTime(2022, 9, 18), Status=true}
             };
             foreach (Afwezigheid afwezigheid in afwezigheids)
             {
