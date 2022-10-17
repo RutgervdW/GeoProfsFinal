@@ -51,6 +51,7 @@ namespace Geoprofs
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
